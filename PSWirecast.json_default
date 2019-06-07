@@ -1,0 +1,47 @@
+{
+    "Path": [
+        {
+            "VirtualOperatorPath": "/Users/livestreamer/Documents/LiveStreaming/VirtualOperator"
+        }
+    ],
+    "Broadcast": [
+        {
+            "UpstreamURL": [
+                {
+                    "Name": "Local",
+                    "URL": "rtmp://172.16.49.10:1935/live"
+                },
+                {
+                    "Name": "Remote",
+                    "URL": "rtmp://livestream.website.org:1935/live"
+                }
+            ],
+            "Layers": [
+                {
+                    "Name": "Master Layer 1",
+                    "Shots": [
+                        {
+                            "Type": "Standby",
+                            "Name": "STANDBY"
+                        },
+                        {
+                            "Type": "Program",
+                            "Name": "PROGRAM"
+                        },
+                        {
+                            "Type": "End",
+                            "Name": "END"
+                        }
+                    ]
+                }
+            ],
+            "WcstWorkingPath": "/Users/livestreamer/Desktop/MultitrackEvent.wcst",
+            "WcstTemplatePath": "/Users/livestreamer/Documents/LiveStreaming/Wirecast Assets/MultitrackEventTemplate.wcst",
+            "MasterFile": [
+                {
+                    "WriteToDiskPath": "/Users/livestreamer/Desktop/MultitrackMasters"
+                }
+            ]
+        }
+    ]
+}
