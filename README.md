@@ -1,7 +1,7 @@
 # PSWirecast
 
 PSWirecast offers a PowerShell interface for automating common actions in Wirecast:
-* Start/stop live streaming with or without delays
+* Start/stop live streaming
 * Start/stop recording
 * Set active shot
 * Export .wcst from template .wcst file
@@ -82,8 +82,8 @@ Values are case-sensitive for -Name and -DocumentName parameters.
 | Open Wirecast | Open-Wcst -Path /Users/streamer/Desktop/MultitrackEvent.wcst |
 | Set Active Shot | Set-WcstShot -Name 'PROGRAM' -LayerName 'Master Layer 1' -DocumentName MultitrackEvent |
 | Visual Countdown Timer | Invoke-Countdown -Seconds 30 |
-| Start Live Streaming | Start-LiveStreaming -DocumentName MultitrackEvent -DelayInSeconds 30 |
-| Stop Live Streaming | Stop-LiveStreaming -DocumentName MultitrackEvent -DelayInSeconds 30 |
+| Start Live Streaming | Start-LiveStreaming -DocumentName MultitrackEvent |
+| Stop Live Streaming | Stop-LiveStreaming -DocumentName MultitrackEvent |
 | Start Recording | Start-WcstRecording -DocumentName MultitrackEvent |
 | Stop Recording | Stop-WcstRecording -DocumentName MultitrackEvent |
 | Get Wirecast TCP Connections (macOS only) | Get-LiveStreamingStatus |

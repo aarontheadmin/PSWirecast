@@ -15,33 +15,20 @@ function Start-LiveStreaming {
         The example above immediately starts live streaming for the
         "MultiLang" document.
 
-    .EXAMPLE
-        PS />Start-LiveStreaming -DocumentName 'MultiLang' -DelayInSeconds 30
-
-        The example above starts live streaming for the "MultiLang" document
-        after 30 seconds have expired.
-
     .INPUTS
         None
 
     .OUTPUTS
         None
     #>
-    [CmdletBinding(SupportsShouldProcess = $true)]
+    [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
         [string]
-        $DocumentName,
-
-        [Parameter()]
-        [ValidateRange(0, 3600)]
-        [uint16]
-        $DelayInSeconds = 0
+        $DocumentName
     )
 
     Write-Verbose -Message "Begin sleep for $DelayInSeconds seconds"
-
-    Start-Sleep -Seconds $DelayInSeconds -ErrorAction Stop
 
     [string]$scptPath = [System.IO.Path]::Combine((Get-VirtualOperatorPath), 'scpt', 'Start-LiveStreaming.scpt')
     Write-Verbose -Message "Script path is $scptPath"
@@ -49,12 +36,10 @@ function Start-LiveStreaming {
     # Start streaming in Wirecast
     Write-Verbose -Message "Start streaming for $DocumentName"
 
-    if ($PSCmdlet.ShouldProcess("Start live streaming")) {
-        try {
-            osascript $scptPath $DocumentName
-        } # try
-        catch {
-            Write-Error -Message "Could not start streaming for $DocumentName"
-        } # catch
-    }
-} # function
+    try {
+        osascript $scptPath $DocumentName
+    }#try
+    catch {
+        Write-Error -Message "Could not start streaming for $DocumentName"
+    }#catch
+}#function
